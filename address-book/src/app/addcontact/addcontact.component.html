@@ -9,7 +9,18 @@
             <li class="logo"><a><img src="assets\blog-icon.png"></a></li>
         </ul>
     </div>
+    <div id="container-1" class="container">
+        <h3>CONTACTS</h3>
 
+        <ol id="contactDetails">
+            <li *ngFor="let item of contactList"  [ngClass]="{'active': item === activeItem}">
+                <p class="capitalize largefont">{{ item?.name }}</p>
+                <p>{{ item?.email }}</p>
+                <p>{{ item?.telephone }}</p>
+            </li>
+        </ol>
+
+    </div>
 
     <div #dialog *ngIf="isDialogHidden" class="adddialog">
         <div id="myForm" class="myform">

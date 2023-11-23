@@ -3,7 +3,6 @@ import { ContactService } from '../Services/contactService';
 import { Contact } from '../Services/module';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-addcontact',
   templateUrl: './addcontact.component.html',
@@ -25,7 +24,6 @@ export class AddcontactComponent {
   selectedetails: any = null;
   activeItem: any;
  
-
   constructor(
     private contactService: ContactService,
     private router:Router,
@@ -43,12 +41,14 @@ export class AddcontactComponent {
       webaddress: '',
       address: '',
     };
-   
+    this.myFunction();
+  }
+  myFunction() {
+    this.contactList = this.contactService.getAllContacts();
   }
   // openDialog() {
   //   this.isDialogHidden = false;
   //   this.isAddButtonVisible = true;
-
   // }
   closeDialog() {
     this.isDialogHidden = false;
