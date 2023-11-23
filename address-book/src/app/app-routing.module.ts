@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren:()=>import('./viewcontact/viewcontact.module').then(m=>m.ViewcontactModule)
   },
   {
+    path:'editcontact/:id',
+    loadChildren:()=>import('./editcontact/editcontact.module').then(m=>m.EditcontactModule)
+  },
+  {
     path:'',
     redirectTo:'',
     pathMatch:'full'

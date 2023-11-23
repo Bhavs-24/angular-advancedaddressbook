@@ -33,8 +33,7 @@ export class HomepageComponent {
     this.contactList = this.contactService.getAllContacts();
   }
   displayData(item:Contact){
-    debugger
-  this.router.navigate(['/viewcontact',item.id])
+    this.router.navigate(['/viewcontact',item.id])
   }
   openDialog(){
     this.router.navigate(['/addcontact',true])

@@ -32,7 +32,6 @@ export class ContactService {
   }
 
   addContact(contact: Contact): Contact {
-    debugger
     const newContact = new Contact({ ...contact, id: this.getRandomNumber() });
     this.contacts.push(newContact);
     this.saveContactsToLocalStorage(this.contacts);

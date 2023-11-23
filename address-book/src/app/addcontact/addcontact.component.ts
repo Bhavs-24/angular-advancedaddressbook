@@ -64,7 +64,6 @@ export class AddcontactComponent {
     };
   }
   onTelephoneChange(value: string) {
-    debugger
     console.log('value', value);
     value = value.toString();
     if (value.length != 10) {

@@ -37,7 +37,6 @@ export class ViewcontactComponent {
     const contactIdString = this.activatedparams.snapshot.params['id'];
     const contactId = parseInt(contactIdString, 10);
     if (!isNaN(contactId)) {
-      debugger
       this.selectedItem = this.contactService.getContactById(contactId);
       if (this.selectedItem) {
         this.isOptionsVisible = true;
@@ -49,6 +48,10 @@ export class ViewcontactComponent {
   }
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
+  }
+  editcontact(){
+    debugger
+    this.router.navigate(['/editcontact',true])
   }
 }
 
