@@ -1,0 +1,87 @@
+<div>
+    <div class="header">
+        <h1>Address Book</h1>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a>HOME</a></li>
+            <li  #showDialogButton><a>+ADD</a></li>
+            <li class="logo"><a><img src="assets\blog-icon.png"></a></li>
+        </ul>
+    </div>
+
+
+    <div #dialog *ngIf="isDialogHidden" class="adddialog">
+        <div id="myForm" class="myform">
+            <span *ngIf="errorMessage" class="error_validation">Please fill all the details</span>
+            <div class="contactForm">
+
+                <span class="close-icon" (click)="closeDialog()">&#x2716;</span>
+
+                <div class="nameFields">
+                    <div>
+                    </div>
+                    <div>
+                        <label for="name"><b>Name</b></label>
+                    </div>
+                    <div>
+                        <input class="inputName" type="text" id="name" required [(ngModel)]="contact.name"><br>
+                    </div>
+                </div>
+                <div class="emailFields">
+                    <div>
+                        <label for="email"><b>Email</b></label>
+                    </div>
+                    <div>
+                        <input #emailInput class="inputName" type="email" required (change)="fieldfocus()"
+                            [(ngModel)]="contact.email">
+                        <span class="validationmsg" *ngIf="validationMessageSpan">Please enter a valid email</span>
+                        <span id="emailerror" class="error_fields"></span>
+                    </div>
+                </div>
+                <div class="mobileFields">
+                    <div class="mobileInputField">
+                        <div>
+                            <label><b>Mobile</b></label>
+                        </div>
+                        <input #telephoneInput type="number" class="teleInput" id="telephone" required
+                            [(ngModel)]="contact.telephone" (ngModelChange)="onTelephoneChange($event)">
+                        <div>
+                            <span *ngIf="messageSpan" class="validationmsg">Must be 10 digits</span>
+                        </div>
+                    </div>
+                    <div class="landInputField">
+                        <div>
+                            <label><b>Landline</b></label>
+                        </div>
+                        <div>
+                            <input class="landInput" type="number" [(ngModel)]="contact.landline" id="landline"><span
+                                id="message" class="validationmsg"></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label><b>Website</b></label>
+                    </div>
+                    <div>
+                        <input class="inputName" type="text" id="webaddress" [(ngModel)]="contact.webaddress">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label><b>Address</b></label>
+                    </div>
+                    <div>
+                        <textarea cols="50" id="address" [(ngModel)]="contact.address"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button (click)="onSubmit()"  class="submitbtn" >Add</button>
+            <!-- <button  id="updateButton"
+                (click)="onUpdate()">Update</button> -->
+        </div>
+    </div>
+</div>
