@@ -52,6 +52,7 @@ export class AddcontactComponent {
   // }
   closeDialog() {
     this.isDialogHidden = false;
+    this.router.navigate(['/homepage'])
     this.contact = {
       id: 0,
       name: '',
@@ -83,7 +84,6 @@ export class AddcontactComponent {
   }
 
   onSubmit() {
-    debugger
     if (this.contact.name.trim() === '' || this.contact.email.trim() === '') {
       this.errorMessage = true;
     } else {
@@ -101,7 +101,7 @@ export class AddcontactComponent {
       };
       console.log('Retrieved item with ID:', updatedContact);
      // this.myFunction();
-      this.isDialogHidden = true;
+      this.isDialogHidden = false;
     }
   }
   onUpdate(){

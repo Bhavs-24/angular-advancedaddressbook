@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
    // HomepageComponent,
     //AddcontactComponent,
-    ViewcontactComponent,
+  //  ViewcontactComponent,
     EditcontactComponent
   ],
   imports: [

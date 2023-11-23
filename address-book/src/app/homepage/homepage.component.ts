@@ -3,7 +3,6 @@ import { ContactService } from '../Services/contactService';
 import { Contact } from '../Services/module';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -12,7 +11,6 @@ import { Router } from '@angular/router';
 export class HomepageComponent {
   contactList: any[] = [];
   contact!: Contact;
-  activeItem: any;
   isOptionsVisible: boolean = false;
   selectedItem: any = null;
   selectedNameClass: boolean = false;
@@ -34,18 +32,9 @@ export class HomepageComponent {
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
   }
-  displayData(item: Contact) {
-    this.isOptionsVisible = true;
-    this.activeItem = item;
-    if (item && item.id) {
-      this.selectedNameClass = true;
-      this.selectedItem = this.contactService.getContactById(item.id);
-      if (this.selectedItem) {
-        console.log('contact displayed')
-      } else {
-        console.log('Contact not found');
-      }
-    }
+  displayData(item:Contact){
+    debugger
+  this.router.navigate(['/viewcontact',item.id])
   }
   openDialog(){
     this.router.navigate(['/addcontact',true])

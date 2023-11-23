@@ -14,7 +14,7 @@
             <h3>CONTACTS</h3>
 
             <ol id="contactDetails">
-                <li *ngFor="let item of contactList" (click)=displayData(item) [ngClass]="{'active': item === activeItem}">
+                <li *ngFor="let item of contactList" (click)=displayData(item)>
                     <p class="capitalize largefont">{{ item?.name }}</p>
                     <p>{{ item?.email }}</p>
                     <p>{{ item?.telephone }}</p>
@@ -22,40 +22,5 @@
             </ol>
 
         </div>
-        <div class="containeritems">
-            <div id="itemDetails" class="itemDetails">
-                <div #selectedDetails *ngIf="isOptionsVisible">
-                    <div class="edit-deleteopts">
-                        <div>
-                            <p class="detailsname">{{selectedItem?.name}}</p>
-                            <p>Email:{{selectedItem?.email}}</p>
-                            <p class="mobilefield">Mobile:{{selectedItem?.telephone}}</p>
-                            <p class="landlinefield">Landline:{{selectedItem?.landline}}</p>
-                            <p>Website:{{selectedItem?.webaddress}}</p>
-                            <p>Address:{{selectedItem?.address}}</p>
-                        </div>
-                        <div class="icons">
-                            <div class="edit-icon">
-                                <div>
-                                    <img class="edit-image" src="assets\edit1.jpg">
-                                </div>
-                                <div>
-                                    <button (click)="editItem()" class="editbtn">EDIT</button>
-                                </div>
-                            </div>
-                            <div class="delete-icon">
-                                <div>
-                                    <img class="delete-image" src="assets\delete2.png">
-                                </div>
-                                <div>
-                                    <button (click)="deleteItem()" class="deletebtn">DELETE</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      
     </div>
 </div>
