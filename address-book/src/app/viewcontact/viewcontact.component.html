@@ -13,8 +13,8 @@
         <div id="container-1" class="container">
             <h3>CONTACTS</h3>
 
-            <ol id="contactDetails">
-                <li *ngFor="let item of contactList" 
+            <ol id="contactDetails" >
+                <li *ngFor="let item of contactList"  (click)=selectedData(item)
                     [ngClass]="{'active': item === activeItem}">
                     <p class="capitalize largefont">{{ item?.name }}</p>
                     <p>{{ item?.email }}</p>

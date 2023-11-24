@@ -57,6 +57,19 @@ export class ViewcontactComponent {
     debugger
     this.router.navigate(['/editcontact',item.id])
   }
+  selectedData(item:Contact){
+    this.isOptionsVisible = true;
+    this.activeItem = item;
+    if (item && item.id) {
+      this.selectedNameClass = true;
+      this.selectedItem = this.contactService.getContactById(item.id);
+      if (this.selectedItem) {
+        console.log('contact displayed')
+      } else {
+        console.log('Contact not found');
+      }
+    }
+}
   deleteItem() {
     let deleteitem = this.contactService.deleteContactById(this.selectedItem.id);
     if (deleteitem) {
