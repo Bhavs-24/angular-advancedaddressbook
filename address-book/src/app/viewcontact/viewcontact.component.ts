@@ -46,7 +46,9 @@ export class ViewcontactComponent {
       }
     }
   }
-  
+  openDialog(){
+    this.router.navigate(['/addcontact',true])
+  }
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
   }
