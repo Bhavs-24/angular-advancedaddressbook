@@ -46,10 +46,7 @@ export class AddcontactComponent {
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
   }
-  // openDialog() {
-  //   this.isDialogHidden = false;
-  //   this.isAddButtonVisible = true;
-  // }
+  
   closeDialog() {
     this.isDialogHidden = false;
     this.router.navigate(['/homepage'])
@@ -99,11 +96,7 @@ export class AddcontactComponent {
         address: '',
       };
       console.log('Retrieved item with ID:', updatedContact);
-     // this.myFunction();
       this.isDialogHidden = false;
     }
-  }
-  onUpdate(){
-
   }
 }

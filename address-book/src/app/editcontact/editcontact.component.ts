@@ -38,19 +38,8 @@ export class EditcontactComponent {
     private activatedparams:ActivatedRoute
     ) {
     this.isDialogHidden = this.activatedparams.snapshot.params['id'];
-   // this.selectedItem = this.contactService.getContactById(item.id);
    }
    ngOnInit(): void {
-    debugger
-    // this.contact = {
-    //   id: 0,
-    //   name: '',
-    //   email: '',
-    //   telephone: '',
-    //   landline: '',
-    //   webaddress: '',
-    //   address: '',
-    // };
     const contactIdString = this.activatedparams.snapshot.params['id'];
     if (this.isDialogHidden && contactIdString) {
       const contactId = parseInt(contactIdString, 10);
