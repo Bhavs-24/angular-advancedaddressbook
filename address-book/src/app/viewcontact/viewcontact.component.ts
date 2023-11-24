@@ -46,12 +46,24 @@ export class ViewcontactComponent {
       }
     }
   }
+  
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
   }
-  editcontact(){
+  editcontact(item:Contact){
     debugger
-    this.router.navigate(['/editcontact',true])
+    this.router.navigate(['/editcontact',item.id])
+  }
+  deleteItem() {
+    let deleteitem = this.contactService.deleteContactById(this.selectedItem.id);
+    if (deleteitem) {
+      console.log('deleteitem', this.selectedItem);
+      this.myFunction();
+      this.isOptionsVisible = false;
+      this.router.navigate(['/homepage'])
+    } else {
+      console.log('not deleted');
+    }
   }
 }
 

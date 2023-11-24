@@ -41,7 +41,7 @@
                                     <img class="edit-image" src="assets\edit1.jpg">
                                 </div>
                                 <div>
-                                    <button class="editbtn" (click)="editcontact()">EDIT</button>
+                                    <button class="editbtn" (click)="editcontact(selectedItem)" >EDIT</button>
                                 </div>
                             </div>
                             <div class="delete-icon">
@@ -49,7 +49,7 @@
                                     <img class="delete-image" src="assets\delete2.png">
                                 </div>
                                 <div>
-                                    <button  class="deletebtn">DELETE</button>
+                                    <button (click)="deleteItem()"  class="deletebtn">DELETE</button>
                                 </div>
                             </div>
                         </div>

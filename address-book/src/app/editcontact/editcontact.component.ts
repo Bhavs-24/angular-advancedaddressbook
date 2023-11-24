@@ -10,7 +10,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditcontactComponent {
   contactList: any[] = [];
-  contact!: Contact;
+  contact: Contact = {
+    id: 0,
+    name: '',
+    email: '',
+    telephone: '',
+    landline: '',
+    webaddress: '',
+    address: '',
+  };
+ // contact!: Contact;
   errorMessage: boolean = false;
   validationMessage: string = '';
   selectedEmail: string = '';
@@ -29,22 +38,29 @@ export class EditcontactComponent {
     private activatedparams:ActivatedRoute
     ) {
     this.isDialogHidden = this.activatedparams.snapshot.params['id'];
-    if (this.selectedItem) {
-      this.contact = { ...this.selectedItem };
-     
-      
-    }
+   // this.selectedItem = this.contactService.getContactById(item.id);
    }
    ngOnInit(): void {
-    this.contact = {
-      id: 0,
-      name: '',
-      email: '',
-      telephone: '',
-      landline: '',
-      webaddress: '',
-      address: '',
-    };
+    debugger
+    // this.contact = {
+    //   id: 0,
+    //   name: '',
+    //   email: '',
+    //   telephone: '',
+    //   landline: '',
+    //   webaddress: '',
+    //   address: '',
+    // };
+    const contactIdString = this.activatedparams.snapshot.params['id'];
+    if (this.isDialogHidden && contactIdString) {
+      const contactId = parseInt(contactIdString, 10);
+      if (!isNaN(contactId)) {
+        this.selectedItem = this.contactService.getContactById(contactId);
+        if (this.selectedItem) {
+          this.contact = { ...this.selectedItem };
+        }
+      }
+    }
     this.myFunction();
   }
   myFunction() {
