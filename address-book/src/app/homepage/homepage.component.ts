@@ -14,8 +14,10 @@ export class HomepageComponent {
   isOptionsVisible: boolean = false;
   selectedItem: any = null;
   selectedNameClass: boolean = false;
-  constructor(private contactService: ContactService,
-    private router:Router) { }
+  constructor(
+    private contactService: ContactService,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
     this.contact = {
@@ -36,6 +38,7 @@ export class HomepageComponent {
     this.router.navigate(['/viewcontact',item.id])
   }
   openDialog(){
+    debugger
     this.router.navigate(['/addcontact',true])
   }
 

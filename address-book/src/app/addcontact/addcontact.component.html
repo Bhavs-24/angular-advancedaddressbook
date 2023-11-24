@@ -1,5 +1,5 @@
 <div>
-    <div class="header">
+    <!-- <div class="header">
         <h1>Address Book</h1>
     </div>
     <div class="navbar">
@@ -20,7 +20,7 @@
             </li>
         </ol>
 
-    </div>
+    </div> -->
 
     <div #dialog *ngIf="isDialogHidden" class="adddialog">
         <div id="myForm" class="myform">
@@ -84,7 +84,7 @@
                         <label><b>Address</b></label>
                     </div>
                     <div>
-                        <textarea cols="50" id="address" [(ngModel)]="contact.address"></textarea>
+                        <textarea cols="50" id="address"  >{{contact.address}}</textarea>
                     </div>
                 </div>
             </div>

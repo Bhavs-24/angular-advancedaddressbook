@@ -29,6 +29,7 @@ export class AddcontactComponent {
     private router:Router,
     private activatedparams:ActivatedRoute
     ) {
+    debugger
     this.isDialogHidden = this.activatedparams.snapshot.params['id'];
    }
    ngOnInit(): void {
