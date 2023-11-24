@@ -97,6 +97,9 @@ export class EditcontactComponent {
     }
   }
   onUpdate(){
-
+    const updatedContact = this.contactService.updateContact(this.contact);
+    this.myFunction();
+    this.isDialogHidden = true;
+    this.closeDialog();
   }
 }
