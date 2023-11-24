@@ -38,9 +38,7 @@ export class HomepageComponent {
   openDialog(){
     this.router.navigate(['/addcontact',true])
   }
-  editItem(){
 
-  }
   deleteItem() {
     let deleteitem = this.contactService.deleteContactById(this.selectedItem.id);
     if (deleteitem) {
