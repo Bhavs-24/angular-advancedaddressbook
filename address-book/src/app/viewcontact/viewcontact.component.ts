@@ -40,6 +40,7 @@ export class ViewcontactComponent {
       this.selectedItem = this.contactService.getContactById(contactId);
       if (this.selectedItem) {
         this.isOptionsVisible = true;
+        this.activeItem = this.selectedItem;
         console.log('Contact displayed:', this.selectedItem);
       } else {
         console.log('Contact not found');
