@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AddcontactRoutingModule,
-    FormsModule
+    FormsModule,
+  
   ]
 })
 export class AddcontactModule { }

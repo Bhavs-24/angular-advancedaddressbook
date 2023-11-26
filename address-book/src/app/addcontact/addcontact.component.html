@@ -1,27 +1,4 @@
 <div>
-    <!-- <div class="header">
-        <h1>Address Book</h1>
-    </div>
-    <div class="navbar">
-        <ul>
-            <li><a>HOME</a></li>
-            <li  #showDialogButton><a>+ADD</a></li>
-            <li class="logo"><a><img src="assets\blog-icon.png"></a></li>
-        </ul>
-    </div>
-    <div id="container-1" class="container">
-        <h3>CONTACTS</h3>
-
-        <ol id="contactDetails">
-            <li *ngFor="let item of contactList"  [ngClass]="{'active': item === activeItem}">
-                <p class="capitalize largefont">{{ item?.name }}</p>
-                <p>{{ item?.email }}</p>
-                <p>{{ item?.telephone }}</p>
-            </li>
-        </ol>
-
-    </div> -->
-
     <div #dialog *ngIf="isDialogHidden" class="adddialog">
         <div id="myForm" class="myform">
             <span *ngIf="errorMessage" class="error_validation">Please fill all the details</span>

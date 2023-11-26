@@ -54,8 +54,7 @@ export class ViewcontactComponent {
     this.contactList = this.contactService.getAllContacts();
   }
   editcontact(item:Contact){
-    debugger
-    this.router.navigate(['/editcontact',item.id])
+    this.router.navigate(['/homepage/editcontact',item.id])
   }
   selectedData(item:Contact){
     this.isOptionsVisible = true;

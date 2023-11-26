@@ -1,28 +1,5 @@
 <div>
-    <div class="header">
-        <h1>Address Book</h1>
-    </div>
-    <div class="navbar">
-        <ul>
-            <li><a>HOME</a></li>
-            <li (click)="openDialog()" #showDialogButton><a>+ADD</a></li>
-            <li class="logo"><a><img src="assets\blog-icon.png"></a></li>
-        </ul>
-    </div>
     <div class="contact-details">
-        <div id="container-1" class="container">
-            <h3>CONTACTS</h3>
-
-            <ol id="contactDetails" >
-                <li *ngFor="let item of contactList"  (click)=selectedData(item)
-                    [ngClass]="{'active': item === activeItem}">
-                    <p class="capitalize largefont">{{ item?.name }}</p>
-                    <p>{{ item?.email }}</p>
-                    <p>{{ item?.telephone }}</p>
-                </li>
-            </ol>
-
-        </div>
         <div class="containeritems">
             <div id="itemDetails" class="itemDetails">
                 <div #selectedDetails *ngIf="isOptionsVisible">
