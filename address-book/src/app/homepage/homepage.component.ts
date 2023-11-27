@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ContactService } from '../Services/contactService';
 import { Contact } from '../Services/module';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-homepage',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
-  contactList: any[] = [];
+  contactList: Contact[] = [];
   contact!: Contact;
   isOptionsVisible: boolean = false;
   selectedItem: any = null;
@@ -17,7 +19,10 @@ export class HomepageComponent {
   constructor(
     private contactService: ContactService,
     private router:Router,
-    ) { }
+    private activatedRoute:ActivatedRoute,
+    ) { 
+      this.myFunction();
+    }
 
   ngOnInit(): void {
     this.contact = {
@@ -29,8 +34,7 @@ export class HomepageComponent {
       webaddress: '',
       address: '',
     };
-   // window.location.reload();
-    this.myFunction();
+   
   }
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
@@ -47,8 +51,9 @@ export class HomepageComponent {
     let deleteitem = this.contactService.deleteContactById(this.selectedItem.id);
     if (deleteitem) {
       console.log('deleteitem', this.selectedItem);
-      this.myFunction();
+     // this.myFunction();
       this.isOptionsVisible = false;
+   
     } else {
       console.log('not deleted');
     }

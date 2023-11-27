@@ -22,19 +22,6 @@ const routes: Routes = [
        },
   ],
   },
-
-  // {
-  //   path:'homepage/addcontact/:id',
-  //   loadChildren:()=>import('./addcontact/addcontact.module').then(m=>m.AddcontactModule)
-  // },
-  // {
-  //   path:'viewcontact/:id',
-  //   loadChildren:()=>import('./viewcontact/viewcontact.module').then(m=>m.ViewcontactModule)
-  // },
-  // {
-  //   path:'editcontact/:id',
-  //   loadChildren:()=>import('./editcontact/editcontact.module').then(m=>m.EditcontactModule)
-  // },
   {
     path:'**',
     redirectTo:'homepage',

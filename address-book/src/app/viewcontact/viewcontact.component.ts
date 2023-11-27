@@ -62,7 +62,7 @@ export class ViewcontactComponent {
   }
   selectedData(item: Contact) {
     this.isOptionsVisible = true;
-    this.activeItem = item;
+    //this.activeItem = item;
     if (item && item.id) {
       this.selectedNameClass = true;
       this.selectedItem = this.contactService.getContactById(item.id);

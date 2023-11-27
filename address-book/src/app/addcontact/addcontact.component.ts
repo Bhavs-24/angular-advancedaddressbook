@@ -98,7 +98,8 @@ export class AddcontactComponent {
       console.log('Retrieved item with ID:', updatedContact);
       // this.myFunction();
       this.isDialogHidden = false;
-      this.router.navigate(['/homepage'])
+      this.router.navigate(['/homepage']);
+      this.myFunction();
     }
   }
 }
