@@ -29,11 +29,9 @@ export class AddcontactComponent {
     private router:Router,
     private activatedparams:ActivatedRoute
     ) {
-
     this.isDialogHidden = this.activatedparams.snapshot.params['id'];
    }
    ngOnInit(): void {
-   // debugger
     this.contact = {
       id: 0,
       name: '',
@@ -98,7 +96,9 @@ export class AddcontactComponent {
         address: '',
       };
       console.log('Retrieved item with ID:', updatedContact);
+      // this.myFunction();
       this.isDialogHidden = false;
+      this.router.navigate(['/homepage'])
     }
   }
 }

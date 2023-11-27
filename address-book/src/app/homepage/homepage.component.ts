@@ -29,16 +29,17 @@ export class HomepageComponent {
       webaddress: '',
       address: '',
     };
+   // window.location.reload();
     this.myFunction();
   }
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
   }
   displayData(item:Contact){
+    this.selectedItem = item;
     this.router.navigate(['/homepage/viewcontact',item.id])
   }
   openDialog(){
-   // debugger
     this.router.navigate(['/homepage/addcontact',true])
   }
 
