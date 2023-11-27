@@ -20,7 +20,7 @@ export class ViewcontactComponent {
     private router: Router,
     private activatedparams: ActivatedRoute
   ) {
-   
+
   }
   ngOnInit(): void {
     this.contact = {
@@ -32,31 +32,35 @@ export class ViewcontactComponent {
       webaddress: '',
       address: '',
     };
-   this.myFunction();
- 
-    const contactIdString = this.activatedparams.snapshot.params['id'];
-    const contactId = parseInt(contactIdString, 10);
-    if (!isNaN(contactId)) {
-      this.selectedItem = this.contactService.getContactById(contactId);
-      if (this.selectedItem) {
-        this.isOptionsVisible = true;
+    this.myFunction();
+    this.activatedparams.params.subscribe(x => {
+      console.log('xxxxxxxxx', x)
+    })
+    this.activatedparams.paramMap.subscribe(paramMap => {
+      const contactIdString = paramMap.get('id');
+      const contactId = parseInt(contactIdString || '', 10);
+
+      if (!isNaN(contactId)) {
+        this.selectedItem = this.contactService.getContactById(contactId);
+        this.isOptionsVisible = !!this.selectedItem;
         this.activeItem = this.selectedItem;
         console.log('Contact displayed:', this.selectedItem);
       } else {
-        console.log('Contact not found');
+        console.log('Invalid contact ID');
       }
-    }
+    });
+    this.myFunction();
   }
-  openDialog(){
-    this.router.navigate(['/addcontact',true])
+  openDialog() {
+    this.router.navigate(['/addcontact', true])
   }
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
   }
-  editcontact(item:Contact){
-    this.router.navigate(['/homepage/editcontact',item.id])
+  editcontact(item: Contact) {
+    this.router.navigate(['/homepage/editcontact', item.id])
   }
-  selectedData(item:Contact){
+  selectedData(item: Contact) {
     this.isOptionsVisible = true;
     this.activeItem = item;
     if (item && item.id) {
@@ -68,12 +72,13 @@ export class ViewcontactComponent {
         console.log('Contact not found');
       }
     }
-}
+  }
   deleteItem() {
     let deleteitem = this.contactService.deleteContactById(this.selectedItem.id);
     if (deleteitem) {
       console.log('deleteitem', this.selectedItem);
-      this.myFunction();
+      this.contactList = this.contactService.getAllContacts();
+      //this.myFunction();
       this.isOptionsVisible = false;
       this.router.navigate(['/homepage'])
     } else {

@@ -16,7 +16,7 @@ export class HomepageComponent {
   selectedNameClass: boolean = false;
   constructor(
     private contactService: ContactService,
-    private router:Router
+    private router:Router,
     ) { }
 
   ngOnInit(): void {
