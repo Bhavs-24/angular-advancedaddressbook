@@ -16,6 +16,7 @@ export class HomepageComponent {
   isOptionsVisible: boolean = false;
   selectedItem: any = null;
   selectedNameClass: boolean = false;
+  activeItem: any;
   constructor(
     private contactService: ContactService,
     private router:Router,
@@ -34,13 +35,16 @@ export class HomepageComponent {
       webaddress: '',
       address: '',
     };
-   
+    this.activatedRoute.params.subscribe(params => {
+      this.myFunction();
+    });
   }
   myFunction() {
     this.contactList = this.contactService.getAllContacts();
   }
   displayData(item:Contact){
     this.selectedItem = item;
+    this.activeItem = this.selectedItem;
     this.router.navigate(['/homepage/viewcontact',item.id])
   }
   openDialog(){

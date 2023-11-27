@@ -14,7 +14,7 @@
             <h3>CONTACTS</h3>
 
             <ol id="contactDetails">
-                <li *ngFor="let item of contactList" (click)=displayData(item)>
+                <li *ngFor="let item of contactList" (click)=displayData(item) [class.selected]="item.id === selectedItem?.id">
                     <p class="capitalize largefont">{{ item?.name }}</p>
                     <p>{{ item?.email }}</p>
                     <p>{{ item?.telephone }}</p>
