@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { ContactService } from '../Services/contactService';
 import { Contact } from '../Services/module';
-import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-homepage',
@@ -35,7 +34,9 @@ export class HomepageComponent {
       webaddress: '',
       address: '',
     };
-    this.activatedRoute.params.subscribe(params => {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
       this.myFunction();
     });
   }
@@ -57,7 +58,6 @@ export class HomepageComponent {
       console.log('deleteitem', this.selectedItem);
      // this.myFunction();
       this.isOptionsVisible = false;
-   
     } else {
       console.log('not deleted');
     }
